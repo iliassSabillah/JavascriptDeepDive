@@ -81,4 +81,24 @@ $.makeArray= (arrayLike) =>{
   return array;
 };
 
-console.log($.makeArray({0:"zero",1:"one" ,2:"two",length: 3}));
+// console.log($.makeArray({0:"zero",1:"one" ,2:"two",length: 3}));
+
+// implement $.proxy jquery method
+
+$.proxy = (fn, context)=>{
+    return ()=>{
+        return fn.apply(context, arguments)
+    }
+};
+
+let Person = {
+    name : "iliass",
+    speak: function(){
+        console.log(this.name+" says hello")
+    }
+};
+
+// var speak = Person.speak; --> undefined says hello
+// var speak = $.proxy(Person.speak, Person); --> iliass says hello
+
+speak();
