@@ -51,24 +51,34 @@ $.isArrayLike = obj => {
 
 $.each  = (collection, cb) =>{
     if($.isArrayLike(collection)){
-        for( var i = 0 ; i < collection.length ; i++){
-            var value = collection[i];
-            // cb.call(value, i , value);
-            console.log(value + " is at index "+ i);
+        for( let i = 0 ; i < collection.length ; i++){
+            let value = collection[i];
+            cb.call(value, i , value);
         }
     }
     else {
-        for( var prop in collection){
-            if(collection.hasOwnProperty(prop)){
-                var value = collection[prop];
-                // cb.call(value, prop, value);
-                console.log("prop "+ prop+  ", value "+ collection[prop])
+        for( let prop in collection){
+            if(collection.hasOwnProperty(prop)) {
+                let value = collection[prop];
+                cb.call(value, prop, value);
             }
-
         }
     }
     return collection;
 };
 
-console.log($.each({0:"zero",1:"one" ,2:"two",3: '3'}));
+// $.each({0:"zero",1:"one" ,2:"two",3:"three",length: 4}, (i,value)=>{ i==3? console.log(value): null});
 
+// implement makeArray method
+
+$.makeArray= (arrayLike) =>{
+  if($.isArrayLike(arrayLike)){
+      var array = [];
+      $.each(arrayLike, function(i, item){
+          array.push(item);
+      })
+  }
+  return array;
+};
+
+console.log($.makeArray({0:"zero",1:"one" ,2:"two",length: 3}));
