@@ -18,4 +18,13 @@ let name = $.extends({first: 'iliass'}, {last:'sabillah'});
 
 let info = $.extends(name, {address: '123', zip:'1133'});
 
-console.log(info);
+
+
+// implement the jquery $.isArray() method
+
+$.isArray=  obj =>{
+    return Object.prototype.toString.call(obj) === "[object Array]"
+};
+
+console.log($.isArray([1,2,3]));
+
