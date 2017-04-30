@@ -17,5 +17,5 @@ let name = $.extends({first: 'iliass'}, {last:'sabillah'});
 
 
 let info = $.extends(name, {address: '123', zip:'1133'});
-// implement the jquery $.isArray() method
+
 console.log(info);
