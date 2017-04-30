@@ -98,7 +98,6 @@ let Person = {
     }
 };
 
-// var speak = Person.speak; --> undefined says hello
-// var speak = $.proxy(Person.speak, Person); --> iliass says hello
-
+// let speak = Person.speak; //--> undefined says hello
+let speak = $.proxy(Person.speak, Person); //--> iliass says hello
 speak();
