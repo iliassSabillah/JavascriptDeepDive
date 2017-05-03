@@ -1,7 +1,7 @@
 
 //implement the jquery $.extends method
 
-$ = function(selector){};
+$ = (selectorås ){};
 
 $.extends= (target, object)=>{
     for( let prop in object ){
@@ -73,8 +73,8 @@ $.each  = (collection, cb) =>{
 
 $.makeArray= (arrayLike) =>{
   if($.isArrayLike(arrayLike)){
-      var array = [];
-      $.each(arrayLike, function(i, item){
+      let array = [];
+      $.each(arrayLike, (i, item)=>{
           array.push(item);
       })
   }
@@ -93,11 +93,12 @@ $.proxy = (fn, context)=>{
 
 let Person = {
     name : "iliass",
-    speak: function(){
+    speak: ()=>{
         console.log(this.name+" says hello")
     }
 };
 
 // let speak = Person.speak; //--> undefined says hello
 let speak = $.proxy(Person.speak, Person); //--> iliass says hello
-speak();
+// speak();
+
